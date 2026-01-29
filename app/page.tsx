@@ -65,6 +65,7 @@ const fadeUp = {
 
 export default function Home() {
   const [activeService, setActiveService] = useState<number | null>(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#050107] text-white">
@@ -95,13 +96,96 @@ export default function Home() {
               Learning
             </Link>
           </nav>
-          <Link
-            href="/subscribe"
-            className="inline-flex h-[45px] w-[160px] items-center justify-center rounded-full bg-[#a855f7] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-[0_0_24px_rgba(168,85,247,0.55)] transition hover:shadow-[0_0_32px_rgba(168,85,247,0.85)]"
-          >
-            Let&apos;s talk
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/subscribe"
+              className="hidden h-[45px] w-[160px] items-center justify-center rounded-full bg-[#a855f7] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-[0_0_24px_rgba(168,85,247,0.55)] transition hover:shadow-[0_0_32px_rgba(168,85,247,0.85)] md:inline-flex"
+            >
+              Let&apos;s talk
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="md:hidden"
+              aria-label="Toggle menu"
+            >
+              <div className="space-y-1.5">
+                <span
+                  className={`block h-0.5 w-6 bg-white transition-transform ${
+                    mobileMenuOpen ? "translate-y-2 rotate-45" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-white transition-opacity ${
+                    mobileMenuOpen ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-white transition-transform ${
+                    mobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
+        {/* Mobile dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="overflow-hidden border-t border-white/10 bg-[#050107]/95 backdrop-blur md:hidden"
+            >
+              <nav className="flex flex-col gap-4 px-6 py-4 text-sm uppercase tracking-[0.28em] text-white/70">
+                <a
+                  href="#projects"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="transition hover:text-white"
+                >
+                  Projects
+                </a>
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="transition hover:text-white"
+                >
+                  About
+                </a>
+                <a
+                  href="#services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="transition hover:text-white"
+                >
+                  Services
+                </a>
+                <a
+                  href="#team"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="transition hover:text-white"
+                >
+                  Team
+                </a>
+                <Link
+                  href="/learning"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="transition hover:text-white"
+                >
+                  Learning
+                </Link>
+                <Link
+                  href="/subscribe"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex h-[45px] w-[160px] items-center justify-center rounded-full bg-[#a855f7] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-[0_0_24px_rgba(168,85,247,0.55)] transition hover:shadow-[0_0_32px_rgba(168,85,247,0.85)]"
+                >
+                  Let&apos;s talk
+                </Link>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       <main>
