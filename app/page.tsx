@@ -220,16 +220,16 @@ export default function Home() {
                 <br />
                 Without Code.
               </h1>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
                 <Link
                   href="/subscribe"
-                  className="glow-purple inline-flex h-[50px] w-[200px] items-center justify-center rounded-full bg-[#a855f7] text-sm font-semibold text-white transition hover:scale-[1.02]"
+                  className="glow-purple inline-flex h-[50px] w-full items-center justify-center rounded-full bg-[#a855f7] text-sm font-semibold text-white transition hover:scale-[1.02] sm:w-[200px]"
                 >
                   Start a Project
                 </Link>
                 <a
                   href="#projects"
-                  className="inline-flex h-[50px] w-[200px] items-center justify-center rounded-full border border-white/20 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white"
+                  className="inline-flex h-[50px] w-full items-center justify-center rounded-full border border-white/20 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white sm:w-[200px]"
                 >
                   See our work
                 </a>
