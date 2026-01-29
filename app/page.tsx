@@ -129,7 +129,7 @@ export default function Home() {
               viewport={{ once: true, amount: 0.4 }}
               className="flex flex-col items-center gap-6 text-center"
             >
-              <h1 className="font-display text-[120px] font-semibold leading-[1.05] sm:text-[120px]">
+              <h1 className="font-display text-[56px] font-semibold leading-[1.05] sm:text-[120px]">
                 Build <span className="text-[#a855f7]">Smart.</span>
                 <br />
                 Launch <span className="text-[#a855f7]">Fast.</span> Grow
@@ -387,7 +387,7 @@ export default function Home() {
                 />
               </div>
               <div className="relative space-y-4">
-                <h3 className="font-display text-[90px] font-semibold leading-[1.05]">
+                <h3 className="font-display text-[40px] font-semibold leading-[1.05] sm:text-[90px]">
                   Have an idea? <br /> Let&apos;s talk.
                 </h3>
                 <p className="text-sm text-muted">
