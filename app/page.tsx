@@ -213,7 +213,7 @@ export default function Home() {
               viewport={{ once: true, amount: 0.4 }}
               className="flex flex-col items-center gap-6 text-center"
             >
-              <h1 className="font-display text-[56px] font-semibold leading-[1.05] sm:text-[120px]">
+              <h1 className="font-display text-[56px] font-semibold leading-[1.05] tracking-tight sm:text-[120px]">
                 Build <span className="text-[#a855f7]">Smart.</span>
                 <br />
                 Launch <span className="text-[#a855f7]">Fast.</span> Grow
