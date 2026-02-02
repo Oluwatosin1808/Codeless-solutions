@@ -17,6 +17,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Codeless — Build Smart. Launch Fast.",
   description: "Codeless landing page",
+  icons: {
+    icon: "/img/codeless logo.svg",
+    shortcut: "/img/codeless logo.svg",
+    apple: "/img/codeless logo.svg",
+  },
 };
 
 export default function RootLayout({
