@@ -190,6 +190,7 @@ export default function Home() {
 
       <main>
         <section id="about" className="relative overflow-hidden px-6 pb-20 pt-14">
+          {/* Animated gradient orbs */}
           <motion.div
             className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.45),rgba(5,1,7,0))] blur-3xl"
             animate={{ opacity: [0.35, 0.55, 0.35], scale: [1, 1.08, 1] }}
@@ -204,6 +205,50 @@ export default function Home() {
             className="pointer-events-none absolute bottom-10 right-[-120px] h-[240px] w-[240px] rounded-full bg-[#38bdf8]/20 blur-3xl"
             animate={{ y: [0, -18, 0], opacity: [0.2, 0.45, 0.2] }}
             transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Additional animated elements */}
+          <motion.div
+            className="pointer-events-none absolute left-10 top-1/3 h-[180px] w-[180px] rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-2xl"
+            animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="pointer-events-none absolute right-20 top-1/4 h-[120px] w-[120px] rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 blur-2xl"
+            animate={{ rotate: [360, 0], scale: [1.2, 1, 1.2] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="pointer-events-none absolute bottom-20 left-1/4 h-[140px] w-[140px] rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-600/20 blur-2xl"
+            animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Floating particles */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="pointer-events-none absolute h-1 w-1 rounded-full bg-white/40"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -100, 0],
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+          {/* Shimmer effect */}
+          <motion.div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           />
           <div className="mx-auto flex max-w-6xl flex-col gap-10">
             <motion.div
