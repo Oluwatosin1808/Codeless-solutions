@@ -614,7 +614,9 @@ export default function Home() {
                   and ships quickly.
                 </p>
                 <Link
-                  href="/subscribe"
+                  href="https://calendar.app.google/PxUa9pp9Bkvr1rNQ9"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="glow-purple inline-flex h-[50px] w-[160px] items-center justify-center rounded-full bg-[#a855f7] text-sm font-semibold text-white"
                 >
                   Book a call
