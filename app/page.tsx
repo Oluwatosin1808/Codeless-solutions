@@ -58,6 +58,44 @@ const team = [
   },
 ];
 
+const testimonials = [
+  {
+    company: "FORMM.agency",
+    image: "//20057f94c7266ade8a6e3c2f1e21a7c5.cdn.bubble.io/f1732181963824x320228977015167000/pic%20CMO.jpg",
+    name: "Simion Foerstermann",
+    role: "Founder and CMO",
+    testimonial: "We highly recommend Israel for any software development projects. Our experience with him has consistently showcased his professionalism and reliability. We continue to work with Israel due to his outstanding expertise and commitment to delivering on time. An invaluable asset to our team.",
+  },
+  {
+    company: "Podium X",
+    image: "//20057f94c7266ade8a6e3c2f1e21a7c5.cdn.bubble.io/f1732181769963x829720204421032800/pic%20podium.jpg",
+    name: "Yariv Erel",
+    role: "CEO",
+    testimonial: "I am currently working alongside Israel on a project centered around Bubble and AI learning development. His expertise in Bubble is truly commendable. Beyond his technical skills, Israel stands out with his incredible demeanor; he's a joy to work with, blending professionalism with a fun and friendly attitude. Our ongoing collaboration has been both productive and enjoyable, and his contributions continue to be invaluable to our team's success.",
+  },
+  {
+    company: "TeamBooster",
+    image: "//20057f94c7266ade8a6e3c2f1e21a7c5.cdn.bubble.io/f1732181349874x583453982736771500/pic%20teambooster.jpg",
+    name: "Koen Veltman",
+    role: "CEO",
+    testimonial: "Israel has a very sharp mind and comes with strong ideas for me as an entrepreneur on improving the product we build. His core strength is to build new features in a very efficient way, it has amazed me how quickly those were developed. We have been working now for 6+ months together and I am looking forward to continuing. And above all our calls together are always fun and energized.",
+  },
+  {
+    company: "SpaceTime",
+    image: "//20057f94c7266ade8a6e3c2f1e21a7c5.cdn.bubble.io/f1732181170377x390138811815066160/spacetime.jpg",
+    name: "Honorebel S. Walker",
+    role: "Founder",
+    testimonial: "Hiring a software engineer can be challenging, but Israel made the process seamless. He quickly grasped our vision and objectives, delivering our MVP within just three weeks. Israel's transparency and thorough understanding of the work required were invaluable. His communication across email, Zoom, Google Hangouts, and Slack was consistently clear and helpful.",
+  },
+  {
+    company: "Safe",
+    image: "//20057f94c7266ade8a6e3c2f1e21a7c5.cdn.bubble.io/f1732182423562x938177281851446700/pic%20serdev.jpg",
+    name: "Ziphezinhle Gabuza",
+    role: "Founder",
+    testimonial: "I am thrilled to endorse my colleague, Israel Aaron. Having had the pleasure of collaborating on several projects, I've come to appreciate Israel's remarkable work ethic and innovative mindset. He effortlessly connects with people, ensuring client satisfaction is always a top priority. Israel's ability to quickly grasp and execute on project visions sets him apart as an outstanding developer.",
+  },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
@@ -493,6 +531,58 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Carousel */}
+        <section className="px-6 py-16">
+          <div className="mx-auto max-w-6xl">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4 }}
+              className="mb-12 text-center"
+            >
+              <p className="text-sm uppercase tracking-[0.3em] text-muted">Testimonials</p>
+              <h2 className="font-display text-3xl font-semibold sm:text-4xl">
+                What our clients say
+              </h2>
+            </motion.div>
+            <div className="relative overflow-hidden">
+              <motion.div
+                className="flex gap-6"
+                animate={{ x: [0, "-50%"] }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              >
+                {[...testimonials, ...testimonials].map((testimonial, index) => (
+                  <motion.div
+                    key={`${testimonial.name}-${index}`}
+                    whileHover={{ scale: 1.02 }}
+                    className="min-w-[350px] max-w-[350px] rounded-2xl border border-white/10 bg-[#0c0a12] p-6 shadow-lg"
+                  >
+                    <div className="mb-4 flex items-center gap-4">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        width={48}
+                        height={48}
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-xs text-muted">
+                          {testimonial.role} @ {testimonial.company}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-sm leading-relaxed text-muted">
+                      &ldquo;{testimonial.testimonial}&rdquo;
+                    </p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </section>
